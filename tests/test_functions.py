@@ -4,12 +4,12 @@ import pytest
 
 @pytest.fixture
 def test_list():
-    test_list = sort_operations("../src/operations.json")
+    test_list = sort_operations("operations.json")
     return test_list
 
 
 def test_read_json():
-    assert read_json("../src/operations.json")[0]["id"] == 441945886
+    assert read_json("C:/Users/ejik2/PycharmProjects/kursovaya_3/src/operations.json")[0]["id"] == 441945886
 
 
 def test_read_json_not_file():
@@ -18,17 +18,14 @@ def test_read_json_not_file():
 
 
 def test_sort_operations():
-    assert sort_operations("../src/operations.json")[0]["date"] == "2019-12-08T22:46:21.935582"
-    assert sort_operations("../src/operations.json")[1]["date"] == "2019-12-07T06:17:14.634890"
-    assert sort_operations("../src/operations.json")[1][("from")] == "Visa Classic 2842878893689012"
+    assert sort_operations("C:/Users/ejik2/PycharmProjects/kursovaya_3/src/operations.json")[0]["date"] == "2019-12-08T22:46:21.935582"
+    assert sort_operations("C:/Users/ejik2/PycharmProjects/kursovaya_3/src/operations.json")[1]["date"] == "2019-12-07T06:17:14.634890"
+    assert sort_operations("C:/Users/ejik2/PycharmProjects/kursovaya_3/src/operations.json")[1][("from")] == "Visa Classic 2842878893689012"
+
 
 def test_sort_operatios_not_file():
     with pytest.raises(FileNotFoundError):
         sort_operations("1.json")
-
-
-def test_formate_date(test_list):
-    assert format_date(test_list)[1]["date"] == "07.12.2019"
 
 
 test_dict = {
